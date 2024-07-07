@@ -1,0 +1,68 @@
+﻿@page "/"
+@inject NavigationManager Navigation 
+
+<div class="main-container">
+    <div class="hero-section">
+        <h1>Bienvenido a [Tu Clínica Dental]</h1>
+        <p>Tu sonrisa es nuestra prioridad. Proporcionando atención dental de primera clase para toda la familia.</p>
+        <button class="btn btn-primary" @onclick="BookAppointment">Reservar una Cita</button>
+    </div>
+
+    <div class="services-section">
+        <h2>Nuestros Servicios</h2>
+        <div class="services-list">
+            <div class="service-item">
+                <h3>Odontología General</h3>
+                <p>Atención dental integral para todas las edades.</p>
+            </div>
+            <div class="service-item">
+                <h3>Odontología Cosmética</h3>
+                <p>Mejorando tu sonrisa con las técnicas más avanzadas.</p>
+            </div>
+            <div class="service-item">
+                <h3>Ortodoncia</h3>
+                <p>Enderezamiento de dientes con brackets y alineadores.</p>
+            </div>
+            <div class="service-item">
+                <h3>Servicios de Emergencia</h3>
+                <p>Atención inmediata para emergencias dentales.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="testimonials-section">
+        <h2>Lo que Dicen Nuestros Pacientes</h2>
+        <div class="testimonial-item">
+            <p>"¡Gran experiencia! El personal es amable y el servicio es excelente. ¡Muy recomendable!"</p>
+            <p>- Jane Doe</p>
+        </div>
+        <div class="testimonial-item">
+            <p>"Estaba nervioso por ir al dentista, pero me hicieron sentir cómodo y tranquilo."</p>
+            <p>- John Smith</p>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2>Contáctanos</h2>
+        <p>Dirección: Calle Dental 123, Ciudad Sonrisa</p>
+        <p>Teléfono: (123) 456-7890</p>
+        <form>
+            <label>Nombre:</label>
+            <input type="text" />
+            <label>Email:</label>
+            <input type="email" />
+            <label>Mensaje:</label>
+            <textarea></textarea>
+            <button type="submit" class="btn btn-secondary">Enviar</button>
+        </form>
+    </div>
+</div>
+
+@code {
+    private void BookAppointment()
+    {
+        Console.WriteLine("BookAppointment method called.");
+        Navigation.NavigateTo("/book-appointment");
+    }
+}
+
