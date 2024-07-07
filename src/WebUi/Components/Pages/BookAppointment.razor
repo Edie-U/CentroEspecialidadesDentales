@@ -1,0 +1,75 @@
+﻿@page "/book-appointment"
+@using CentroEspecialidadesDentales.Domain.Entities
+@* @inject AppointmentService AppointmentService *@
+
+<div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
+    <div class="col-md-8">
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Reservar una Cita</h4>
+            </div>
+            <div class="card-body">
+                <EditForm Model="@appointment" OnValidSubmit="HandleValidSubmit">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary class="text-danger" />
+
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <InputText id="name" class="form-control" @bind-Value="appointment.Name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <InputText id="email" class="form-control" @bind-Value="appointment.Email" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <InputText id="phone" class="form-control" @bind-Value="appointment.Phone" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Dirección</label>
+                        <InputText id="address" class="form-control" @bind-Value="appointment.Address" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Fecha</label>
+                        <InputDate id="date" class="form-control" @bind-Value="appointment.Date" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Hora</label>
+                        <InputText id="time" class="form-control" @bind-Value="appointment.Time" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Notas</label>
+                        <InputTextArea id="notes" class="form-control" @bind-Value="appointment.Notes" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Reservar Cita</button>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private Appointment appointment = new Appointment();
+
+    private async Task HandleValidSubmit()
+    {
+        // bool success = await AppointmentService.BookAppointment(appointment);
+        // if (success)
+        // {
+        //     // Handle success (e.g., show a success message, redirect, etc.)
+        //     // For now, just clear the form
+        //     appointment = new Appointment();
+        // }
+        // else
+        // {
+        //     // Handle failure (e.g., show an error message)
+        // }
+    }
+}

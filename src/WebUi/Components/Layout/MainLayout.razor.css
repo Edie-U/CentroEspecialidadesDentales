@@ -1,3 +1,4 @@
+/* Page layout */
 .page {
     position: relative;
     display: flex;
@@ -8,10 +9,38 @@ main {
     flex: 1;
 }
 
+/* Sidebar styling */
 .sidebar {
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    color: white;
+    padding: 1rem;
 }
 
+    .sidebar .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar .navbar-brand img {
+        max-width: 200px;
+        margin-bottom: 1rem;
+    }
+
+    .sidebar .navbar-nav {
+        width: 100%;
+    }
+
+    .sidebar .nav-link {
+        color: white;
+        margin: 0.5rem 0;
+    }
+
+        .sidebar .nav-link:hover {
+            text-decoration: underline;
+        }
+
+/* Top row styling */
 .top-row {
     background-color: #f7f7f7;
     border-bottom: 1px solid #d6d5d5;
@@ -21,29 +50,30 @@ main {
     align-items: center;
 }
 
-    .top-row ::deep a, .top-row ::deep .btn-link {
+    .top-row a, .top-row .btn-link {
         white-space: nowrap;
         margin-left: 1.5rem;
         text-decoration: none;
     }
 
-    .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
-        text-decoration: underline;
-    }
+        .top-row a:hover, .top-row .btn-link:hover {
+            text-decoration: underline;
+        }
 
-    .top-row ::deep a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+        .top-row a:first-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
+/* Responsive adjustments */
 @media (max-width: 640.98px) {
     .top-row {
         justify-content: space-between;
     }
 
-    .top-row ::deep a, .top-row ::deep .btn-link {
-        margin-left: 0;
-    }
+        .top-row a, .top-row .btn-link {
+            margin-left: 0;
+        }
 }
 
 @media (min-width: 641px) {
@@ -64,11 +94,11 @@ main {
         z-index: 1;
     }
 
-    .top-row.auth ::deep a:first-child {
-        flex: 1;
-        text-align: right;
-        width: 0;
-    }
+        .top-row.auth a:first-child {
+            flex: 1;
+            text-align: right;
+            width: 0;
+        }
 
     .top-row, article {
         padding-left: 2rem !important;
@@ -76,6 +106,7 @@ main {
     }
 }
 
+/* Blazor error UI */
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
