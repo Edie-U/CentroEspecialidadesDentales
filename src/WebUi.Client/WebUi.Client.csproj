@@ -6,8 +6,8 @@
 		<Nullable>enable</Nullable>
 		<NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
 		<StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
-		<RootNamespace>CentroEspecialidadesDentales.Client</RootNamespace>
-		<AssemblyName>CentroEspecialidadesDentales.Client</AssemblyName>
+		<RootNamespace>Client</RootNamespace>
+		<AssemblyName>Client</AssemblyName>
 	</PropertyGroup>
 
 	<ItemGroup>

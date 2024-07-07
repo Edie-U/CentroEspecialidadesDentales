@@ -1,11 +1,4 @@
 using CentroEspecialidadesDentales.Infrastructure.Persistence;
-using CentroEspecialidadesDentales;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System.Threading.Tasks;
-using WebUi.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -65,12 +58,12 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
 
-app.MapRazorPages();
+//app.MapRazorPages();
 
-app.MapFallbackToFile("index.html");
+//app.MapFallbackToFile("index.html");
 
-app.MapRazorComponents<App>()
+app.MapRazorComponents<WebUI.Components.App>()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(CentroEspecialidadesDentales.Client._Imports).Assembly);
+    .AddAdditionalAssemblies(typeof(Client._Imports).Assembly);
 
 app.Run();
