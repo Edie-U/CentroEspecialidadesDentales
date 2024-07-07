@@ -1,6 +1,7 @@
 ﻿using CentroEspecialidadesDentales.Infrastructure.Persistence;
 using CentroEspecialidadesDentales.WebUI.Filters;
 using CentroEspecialidadesDentales.WebUI.Services;
+using CentroEspecialidadesDentales.Application.Common.Interfaces;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,7 +12,7 @@ public static class ConfigureServices
     {
         services.AddDatabaseDeveloperPageExceptionFilter();
 
-        //services.AddSingleton<ICurrentUserService, CurrentUserService>();
+        services.AddSingleton<ICurrentUserService, CurrentUserService>();
 
         services.AddHttpContextAccessor();
 
