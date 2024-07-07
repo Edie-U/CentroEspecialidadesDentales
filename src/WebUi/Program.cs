@@ -1,10 +1,11 @@
-using CentroEspecialidadesDentales.Client.Pages;
-using CentroEspecialidadesDentales.Components;
+using CentroEspecialidadesDentales.Infrastructure.Persistence;
+using CentroEspecialidadesDentales;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Threading.Tasks;
+using WebUi.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
