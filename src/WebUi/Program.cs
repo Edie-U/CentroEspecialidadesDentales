@@ -16,6 +16,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddWebUIServices();
+builder.Services.AddAntiforgery(options => options.HeaderName = "X-CSRF-TOKEN");
 
 var app = builder.Build();
 
@@ -43,7 +44,7 @@ else
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
-app.UseAntiforgery();
+
 
 app.UseHealthChecks("/health");
 
@@ -54,6 +55,7 @@ app.UseHealthChecks("/health");
 //});
 
 app.UseRouting();
+app.UseAntiforgery();
 
 app.UseAuthentication();
 app.UseIdentityServer();
