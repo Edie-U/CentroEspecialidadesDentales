@@ -16,7 +16,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '8.0.x' # Adjust this to the correct .NET 8.0 version
+        dotnet-version: '8.0.x' # Ensure this matches the .NET 8.0 version you are using
 
     - name: Restore dependencies
       run: dotnet restore ./CentroEspecialidadesDentales.sln
@@ -25,10 +25,12 @@ jobs:
       run: dotnet build ./CentroEspecialidadesDentales.sln --configuration Release --no-restore
 
     - name: Publish
-      run: dotnet publish ./src/WebUI/WebUI.csproj --configuration Release --no-build --output ./publish
+      run: dotnet publish ./src/WebUI/WebUI.csproj --configuration Release --output ./publish
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./publish/wwwroot
+        publish_branch: gh-pages
+        force_orphan: true
