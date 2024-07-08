@@ -16,16 +16,16 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.x' # Adjust this to your .NET Core version
+        dotnet-version: '8.0.x' # Adjust this to the correct .NET 8.0 version
 
     - name: Restore dependencies
-      run: dotnet restore CentroEspecialidadesDentales.sln
+      run: dotnet restore ./CentroEspecialidadesDentales.sln
 
     - name: Build
-      run: dotnet build CentroEspecialidadesDentales.sln --configuration Release --no-restore
+      run: dotnet build ./CentroEspecialidadesDentales.sln --configuration Release --no-restore
 
     - name: Publish
-      run: dotnet publish src/WebUi/WebUI.csproj --configuration Release --no-build --output ./publish
+      run: dotnet publish ./src/WebUi/WebUI.csproj --configuration Release --no-build --output ./publish
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
