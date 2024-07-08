@@ -19,13 +19,13 @@ jobs:
         dotnet-version: '6.0.x' # Adjust this to your .NET Core version
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore CentroEspecialidadesDentales.sln
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build CentroEspecialidadesDentales.sln --configuration Release --no-restore
 
     - name: Publish
-      run: dotnet publish --configuration Release --no-build --output ./publish
+      run: dotnet publish src/WebUi/WebUI.csproj --configuration Release --no-build --output ./publish
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
