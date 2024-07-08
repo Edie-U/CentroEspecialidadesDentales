@@ -39,9 +39,6 @@ jobs:
     - name: Publish WebUI Project
       run: dotnet publish ./src/WebUI/WebUI.csproj --configuration Release --output ./publish
 
-    - name: Copy WebUI Client Files
-      run: cp -r ./src/WebUI.Client/bin/Release/net8.0/publish/wwwroot ./publish/wwwroot
-
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
