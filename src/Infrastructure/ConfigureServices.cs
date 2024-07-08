@@ -1,11 +1,9 @@
 ﻿using CentroEspecialidadesDentales.Application.Common.Interfaces;
 using CentroEspecialidadesDentales.Infrastructure.Files;
-using CentroEspecialidadesDentales.Infrastructure.Identity;
 using CentroEspecialidadesDentales.Infrastructure.Persistence;
 using CentroEspecialidadesDentales.Infrastructure.Persistence.Interceptors;
 using CentroEspecialidadesDentales.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -30,25 +28,14 @@ public static class ConfigureServices
 
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
 
-        services.AddScoped<ApplicationDbContextInitialiser>();
-
-        services
-            .AddDefaultIdentity<ApplicationUser>()
-            .AddRoles<IdentityRole>()
-            .AddEntityFrameworkStores<ApplicationDbContext>();
-
-        services.AddIdentityServer()
-            .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
-
         services.AddTransient<IDateTime, DateTimeService>();
-        services.AddTransient<IIdentityService, IdentityService>();
         services.AddTransient<ICsvFileBuilder, CsvFileBuilder>();
 
-        services.AddAuthentication()
-            .AddIdentityServerJwt();
+        //services.AddAuthentication()
+        //    .AddIdentityServerJwt();
 
-        services.AddAuthorization(options =>
-            options.AddPolicy("CanPurge", policy => policy.RequireRole("Administrator")));
+        //services.AddAuthorization(options =>
+        //    options.AddPolicy("CanPurge", policy => policy.RequireRole("Administrator")));
 
         return services;
     }
