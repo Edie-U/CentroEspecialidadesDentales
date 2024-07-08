@@ -21,20 +21,8 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./CentroEspecialidadesDentales.sln
 
-    - name: Build Application Project
-      run: dotnet build ./src/Application/Application.csproj --configuration Release --no-restore
-
-    - name: Build Domain Project
-      run: dotnet build ./src/Domain/Domain.csproj --configuration Release --no-restore
-
-    - name: Build Infrastructure Project
-      run: dotnet build ./src/Infrastructure/Infrastructure.csproj --configuration Release --no-restore
-
-    - name: Build WebUI Project
-      run: dotnet build ./src/WebUI/WebUI.csproj --configuration Release --no-restore
-
-    - name: Build WebUI Client Project
-      run: dotnet build ./src/WebUI.Client/WebUI.Client.csproj --configuration Release --no-restore
+    - name: Build Solution
+      run: dotnet build ./CentroEspecialidadesDentales.sln --configuration Release --no-restore
 
     - name: Publish WebUI Project
       run: dotnet publish ./src/WebUI/WebUI.csproj --configuration Release --output ./publish
