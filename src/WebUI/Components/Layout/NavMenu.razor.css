@@ -11,8 +11,8 @@ main {
 
 /* Sidebar styling */
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
-    color: white;
+    background-image: linear-gradient(180deg, rgb(240, 240, 240) 0%, #d3d3d3 70%);
+    color: black;
     padding: 1rem;
 }
 
@@ -32,7 +32,7 @@ main {
     }
 
     .sidebar .nav-link {
-        color: white;
+        color: black;
         margin: 0.5rem 0;
     }
 
@@ -40,7 +40,18 @@ main {
             text-decoration: underline;
         }
 
-/* Navbar toggler styling */
+/* Navbar styling */
+.navbar {
+    background-color: #f5f5f5; /* Light grey background */
+    color: #000000; /* Black text */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000; /* Black text */
+}
+
 .navbar-toggler {
     appearance: none;
     cursor: pointer;
@@ -51,26 +62,38 @@ main {
     top: 0.5rem;
     right: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center/1.75rem rgba(255, 255, 255, 0.1);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") no-repeat center/1.75rem rgba(255, 255, 255, 0.1);
 }
 
     .navbar-toggler:checked {
         background-color: rgba(255, 255, 255, 0.5);
     }
 
+.navbar-toggler-icon {
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #000000; /* Black for better contrast */
+    mask: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="rgba(255, 255, 255, 0.5)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E') no-repeat center;
+    mask-size: contain;
+}
+
 /* Top row styling */
 .top-row {
     height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     justify-content: flex-end;
     display: flex;
     align-items: center;
+    color: #000000; /* Black text */
 }
 
     .top-row a, .top-row .btn-link {
         white-space: nowrap;
         margin-left: 1.5rem;
         text-decoration: none;
+        color: #000000; /* Black text */
     }
 
         .top-row a:hover, .top-row .btn-link:hover {
@@ -83,14 +106,12 @@ main {
         }
 
 /* Navbar icon styling */
-.bi {
+.bi, .oi {
     display: inline-block;
-    position: relative;
     width: 1.25rem;
     height: 1.25rem;
-    margin-right: 0.75rem;
-    top: -1px;
-    background-size: cover;
+    margin-right: 0.5rem;
+    vertical-align: middle;
 }
 
 .bi-house-door-fill-nav-menu {
@@ -119,7 +140,7 @@ main {
         padding-bottom: 1rem;
     }
 
-    .nav-item ::deep .nav-link {
+    .nav-item .nav-link {
         color: #d7d7d7;
         background: none;
         border: none;
@@ -131,13 +152,13 @@ main {
         width: 100%;
     }
 
-    .nav-item ::deep a.active {
-        background-color: rgba(255,255,255,0.37);
+    .nav-item a.active {
+        background-color: rgba(255, 255, 255, 0.37);
         color: white;
     }
 
-    .nav-item ::deep .nav-link:hover {
-        background-color: rgba(255,255,255,0.1);
+    .nav-item .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
         color: white;
     }
 
