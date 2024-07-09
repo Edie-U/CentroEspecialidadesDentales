@@ -5,27 +5,30 @@
 <PageTitle>Centro Especialidades Dentales</PageTitle>
 
 <div class="page">
-    <div class="sidebar">
+    <!-- Top navigation bar -->
+    <nav class="top-nav">
         <NavMenu />
-    </div>
+    </nav>
 
     <main>
-        <div class="top-row px-4">
-            <div class="contact-info">
-                <p>@Contact.Address | @Contact.PhoneNumber | <a href="mailto:@Contact.Email">@Contact.Email</a></p>
-            </div>
-            <div class="links">
-                <a href="/book-appointment" target="_blank">Citas</a>
-                <a href="/about" target="_blank">Sobre Nosotros</a>
-            </div>
-        </div>
-
         <article class="content px-4">
             @Body
         </article>
     </main>
+
+    <!-- Bottom banner with contact information -->
+    <div class="bottom-banner px-4">
+        <div class="contact-info">
+            <p>@Contact.Address | @Contact.PhoneNumber | <a href="mailto:@Contact.Email">@Contact.Email</a></p>
+        </div>
+        <div class="links">
+            <a href="/book-appointment" target="_blank" class="btn btn-primary">Reservar una Cita</a>
+        </div>
+    </div>
 </div>
 
+
+@* 
 <style>
     .top-row {
         display: flex;
@@ -95,7 +98,7 @@
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-</style>
+</style> *@
 
 @code {
     private ContactInfo Contact { get; set; }
