@@ -1,6 +1,10 @@
 using CentroEspecialidadesDentales.Infrastructure.Persistence;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using System.Net.Http;
+using WebUI.Components;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
@@ -10,6 +14,8 @@ builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddWebUIServices();
 builder.Services.AddAntiforgery(options => options.HeaderName = "X-CSRF-TOKEN");
+//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
 
 var app = builder.Build();
 
@@ -54,7 +60,7 @@ app.MapRazorPages();
 
 //app.MapFallbackToFile("index.html");
 
-app.MapRazorComponents<WebUI.Components.App>()
+app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(Client._Imports).Assembly);
 

@@ -1,15 +1,110 @@
 ﻿@inherits LayoutComponentBase
+@inject IConfiguration Configuration
+@using CentroEspecialidadesDentales.Domain.Entities
 
 <PageTitle>Centro Especialidades Dentales</PageTitle>
 
 <div class="page">
-    <div class="sidebar">
+    <!-- Top navigation bar -->
+    <nav class="top-nav">
         <NavMenu />
-    </div>
+    </nav>
 
     <main>
         <article class="content px-4">
             @Body
         </article>
     </main>
+
+    <!-- Bottom banner with contact information -->
+    <div class="bottom-banner px-4">
+        <div class="contact-info">
+            <p>@Contact.Address | @Contact.PhoneNumber | <a href="mailto:@Contact.Email">@Contact.Email</a></p>
+        </div>
+        <div class="links">
+            <a href="/book-appointment" target="_blank" class="btn btn-primary">Reservar una Cita</a>
+        </div>
+    </div>
 </div>
+
+
+@* 
+<style>
+    .top-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #ffffff;
+        color: #333333;
+        border-bottom: 2px solid #cccccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .contact-info p {
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .contact-info a {
+        color: #007acc;
+        text-decoration: none;
+    }
+
+    .contact-info a:hover {
+        text-decoration: underline;
+    }
+
+    .links {
+        display: flex;
+        align-items: center;
+    }
+
+    .links a {
+        margin-left: 20px;
+        color: #007acc;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .links a:hover {
+        text-decoration: underline;
+    }
+
+    .page {
+        display: flex;
+    }
+
+    .sidebar {
+        width: 250px;
+        background-color: #f3f3f3;
+    }
+
+    main {
+        flex: 1;
+        padding: 20px;
+        background-color: #f9f9f9;
+    }
+
+    .content {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+</style> *@
+
+@code {
+    private ContactInfo Contact { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Contact = Configuration.GetSection("ContactInfo").Get<ContactInfo>();
+    }
+}
