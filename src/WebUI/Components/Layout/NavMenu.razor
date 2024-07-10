@@ -1,13 +1,21 @@
-﻿<div class="top-row ps-3 navbar navbar-light">
+﻿@page "/navmenu"
+
+@* Add a link to the external CSS file *@
+<link rel="stylesheet" href="css/NavMenu.css" />
+
+<div class="top-row ps-3 navbar navbar-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Centro de Especialidades Dentales</a>
+        <label for="navbar-toggler" class="navbar-toggler-icon"></label>
     </div>
 </div>
 
-<div class="nav-scrollable" onclick="document.getElementById('navbar-toggler').click()">
+<input type="checkbox" id="navbar-toggler" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse show" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="/" Match="NavLinkMatch.All">
@@ -49,3 +57,11 @@
         </div>
     </nav>
 </div>
+
+<script>
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('navbar-toggler').checked = false;
+        });
+    });
+</script>

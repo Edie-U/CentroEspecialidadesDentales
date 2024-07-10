@@ -1,21 +1,51 @@
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    background-color: #e0e0e0;
-    padding: 0.5rem 1rem;
-    border-bottom: 1px solid #d6d5d5;
+/* Custom CSS */
+#navbar-toggler {
+    display: none;
 }
 
-.navbar-nav {
-    display: flex;
-    flex-direction: row;
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    cursor: pointer;
 }
 
-.nav-link {
-    margin-right: 1rem;
-    color: black;
+/* Adjust the size and position of the checkbox to fit the icon */
+.navbar-toggler {
+    display: none; /* Hide the default checkbox */
 }
 
-    .nav-link:hover {
-        text-decoration: underline;
+.navbar-toggler-icon::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    cursor: pointer;
+}
+
+/* Ensure the nav-scrollable is displayed correctly */
+.nav-scrollable {
+    display: block;
+}
+
+/* Hide menu for mobile devices */
+@media (max-width: 767px) {
+    .nav-scrollable {
+        display: none;
     }
+
+    #navbar-toggler {
+        display: inline-block;
+    }
+
+        #navbar-toggler:checked ~ .nav-scrollable {
+            display: block;
+        }
+
+    /* Adjust the icon to show only on mobile */
+    .navbar-toggler-icon {
+        display: inline-block;
+    }
+}
