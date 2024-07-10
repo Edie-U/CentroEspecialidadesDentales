@@ -8,6 +8,15 @@
 	  <AssemblyName>WebUI</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\index.html" />
+    <None Include="wwwroot\404.html" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<ProjectReference Include="..\Application\Application.csproj" />
 		<ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
