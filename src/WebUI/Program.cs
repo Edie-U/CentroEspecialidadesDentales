@@ -1,7 +1,10 @@
+using CentroEspecialidadesDentales.Application.Common.Interfaces;
+using CentroEspecialidadesDentales.Application.Services;
 using CentroEspecialidadesDentales.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using System.Net.Http;
 using WebUI.Components;
+using WebUI.Components.Pages;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +16,13 @@ builder.Services.AddRazorComponents()
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddWebUIServices();
+//builder.Services.AddServerSideBlazor();
 builder.Services.AddAntiforgery(options => options.HeaderName = "X-CSRF-TOKEN");
 //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+builder.Services.AddScoped<IEmailService, SmtpEmailService>();
+builder.Services.AddScoped<BookingService>();
+builder.Services.AddScoped<AppointmentService>();
+
 
 
 var app = builder.Build();

@@ -1,6 +1,6 @@
 ﻿@page "/book-appointment"
 @using CentroEspecialidadesDentales.Domain.Entities
-@* @inject AppointmentService AppointmentService *@
+@inject CentroEspecialidadesDentales.Application.Services.AppointmentService AppointmentService
 
 <div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
     <div class="col-md-8">
@@ -48,6 +48,9 @@
                         <InputTextArea id="notes" class="form-control" @bind-Value="appointment.Notes" />
                     </div>
 
+                    <!-- Hidden input field to specify the form name -->
+                    <input type="hidden" name="FormName" value="BookingForm" />
+
                     <button type="submit" class="btn btn-primary w-100">Reservar Cita</button>
                 </EditForm>
             </div>
@@ -56,20 +59,20 @@
 </div>
 
 @code {
-    private Appointment appointment = new Appointment();
+    private Appointment appointment = new Appointment { Date = DateTime.Today };
 
     private async Task HandleValidSubmit()
     {
-        // bool success = await AppointmentService.BookAppointment(appointment);
-        // if (success)
-        // {
-        //     // Handle success (e.g., show a success message, redirect, etc.)
-        //     // For now, just clear the form
-        //     appointment = new Appointment();
-        // }
-        // else
-        // {
-        //     // Handle failure (e.g., show an error message)
-        // }
+        bool success = await AppointmentService.BookAppointment(appointment);
+        if (success)
+        {
+            // Handle success (e.g., show a success message, redirect, etc.)
+            // For now, just clear the form
+            appointment = new Appointment { Date = DateTime.Today };
+        }
+        else
+        {
+            // Handle failure (e.g., show an error message)
+        }
     }
 }
