@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - master  # Set the branch you want to deploy from
+      - master
 
 jobs:
   build-and-deploy:
@@ -31,6 +31,6 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./publish
+        publish_dir: ./publish/wwwroot
         publish_branch: gh-pages
         force_orphan: true
