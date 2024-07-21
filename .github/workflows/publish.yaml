@@ -25,7 +25,7 @@ jobs:
       run: dotnet build ./CentroEspecialidadesDentales.sln --configuration Release --no-restore
 
     - name: Publish WebUI Project
-      run: dotnet publish ./src/WebUI/WebUI.csproj --configuration Release --output ./publish
+      run: dotnet publish ./src/WebUI/WebUI.csproj --configuration Release --output ./publish -p:GHPages=true
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
