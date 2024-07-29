@@ -2,9 +2,9 @@
 @inject NavigationManager Navigation
 @inject IConfiguration Configuration
 @using CentroEspecialidadesDentales.Domain.Entities
+@using Microsoft.AspNetCore.Components
 
 <div class="main-container">
-
     <!-- Hero Section -->
     <div class="hero-section">
         <h1>Bienvenido al Centro de Especialidades Dentales</h1>
@@ -64,48 +64,48 @@
     <div class="services-section">
         <h2>Nuestros Servicios</h2>
         <div class="services-list">
-            <div class="service-item">
-                <img src="icons/consulta_dental.png" alt="Consulta Dental" class="service-icon" />
+            <div class="service-item" @onclick="NavigateToConsultaDental">
+                <img src="images/icons/consulta_dental.ico" alt="Consulta Dental" class="service-icon" />
                 <h3>Consulta Dental</h3>
                 <p>Realizamos un examen oral exhaustivo y limpieza dental para reducir la caries y mantener encías saludables.</p>
             </div>
-            <div class="service-item">
-                <img src="icons/odontologia_infantil.png" alt="Odontología Infantil" class="service-icon" />
+            <div class="service-item" @onclick="NavigateToOdontologiaInfantil">
+                <img src="images/icons/odontologia_infantil.ico" alt="Odontología Infantil" class="service-icon" />
                 <h3>Odontología Infantil</h3>
                 <p>Enseñamos técnicas adecuadas de cepillado y uso de hilo dental, y limitamos alimentos chatarra y bebidas azucaradas.</p>
             </div>
-            <div class="service-item">
-                <img src="icons/estetica_dental.png" alt="Estética Dental" class="service-icon" />
+            <div class="service-item" @onclick="NavigateToEsteticaDental">
+                <img src="images/icons/estetica_dental.ico" alt="Estética Dental" class="service-icon" />
                 <h3>Estética Dental</h3>
                 <p>Solucionamos problemas estéticos con blanqueamientos, carillas, implantes y más, usando técnicas modernas.</p>
             </div>
-            <div class="service-item">
-                <img src="icons/extracciones_dentales.png" alt="Extracciones Dentales" class="service-icon" />
+            <div class="service-item" @onclick="NavigateToExtraccionesDentales">
+                <img src="images/icons/extracciones_dentales.ico" alt="Extracciones Dentales" class="service-icon" />
                 <h3>Extracciones Dentales</h3>
                 <p>Removemos dientes afectados de manera suave y sin dolor cuando no se pueden salvar con otros tratamientos.</p>
             </div>
-            <div class="service-item">
-                <img src="icons/protesis_dental.png" alt="Prótesis Dental" class="service-icon" />
+            <div class="service-item" @onclick="NavigateToProtesisDental">
+                <img src="images/icons/protesis_dental.ico" alt="Prótesis Dental" class="service-icon" />
                 <h3>Prótesis Dental</h3>
                 <p>Reemplazamos dientes perdidos con prótesis fijas o removibles, usando materiales estéticos y duraderos como zirconia.</p>
             </div>
-            <div class="service-item">
-                <img src="icons/endodoncia.png" alt="Endodoncia" class="service-icon" />
+            <div class="service-item" @onclick="NavigateToEndodoncia">
+                <img src="images/icons/endodoncia.ico" alt="Endodoncia" class="service-icon" />
                 <h3>Endodoncia</h3>
                 <p>Tratamos el canal radicular para eliminar la caries y mantener el diente, asegurando resultados de alta calidad.</p>
             </div>
-            <div class="service-item">
-                <img src="icons/ortodoncia.png" alt="Ortodoncia" class="service-icon" />
+            <div class="service-item" @onclick="NavigateToOrtodoncia">
+                <img src="images/icons/ortodoncia.ico" alt="Ortodoncia" class="service-icon" />
                 <h3>Ortodoncia</h3>
                 <p>Corrigimos la posición dental con brackets y alineadores, mejorando la higiene y estética de la sonrisa.</p>
             </div>
-            <div class="service-item">
-                <img src="icons/parodoncia.png" alt="Parodoncia" class="service-icon" />
+            <div class="service-item" @onclick="NavigateToParodoncia">
+                <img src="images/icons/parodoncia.ico" alt="Parodoncia" class="service-icon" />
                 <h3>Parodoncia</h3>
                 <p>Tratamos la Gingivitis y Periodontitis para mantener encías saludables y prevenir la pérdida de piezas dentales.</p>
             </div>
-            <div class="service-item">
-                <img src="icons/obturaciones_resina.png" alt="Obturaciones con Resina" class="service-icon" />
+            <div class="service-item" @onclick="NavigateToObturacionesConResina">
+                <img src="images/icons/obturaciones_resina.ico" alt="Obturaciones con Resina" class="service-icon" />
                 <h3>Obturaciones con Resina</h3>
                 <p>Eliminamos caries y rellenamos la cavidad dental con resina, un material estético y resistente a la masticación.</p>
             </div>
@@ -178,6 +178,21 @@
         Console.WriteLine("BookAppointment method called.");
         Navigation.NavigateTo("/book-appointment");
     }
+
+    private void NavigateToService(string serviceUrl)
+    {
+        Navigation.NavigateTo(serviceUrl);
+    }
+
+    private void NavigateToConsultaDental() => NavigateToService("/treatments#consulta-dental");
+    private void NavigateToOdontologiaInfantil() => NavigateToService("/treatments#odontologia-infantil");
+    private void NavigateToEsteticaDental() => NavigateToService("/treatments#estetica-dental");
+    private void NavigateToExtraccionesDentales() => NavigateToService("/treatments#extracciones-dentales");
+    private void NavigateToProtesisDental() => NavigateToService("/treatments#protesis-dental");
+    private void NavigateToEndodoncia() => NavigateToService("/treatments#endodoncia");
+    private void NavigateToOrtodoncia() => NavigateToService("/treatments#ortodoncia");
+    private void NavigateToParodoncia() => NavigateToService("/treatments#parodoncia");
+    private void NavigateToObturacionesConResina() => NavigateToService("/treatments#obturaciones-con-resina");
 }
 
 <style>
@@ -289,8 +304,8 @@
     }
 
     .service-icon {
-        width: 50px;
-        height: 50px;
+        width: 100px; /* Adjusted from 50px to 100px */
+        height: 100px; /* Adjusted from 50px to 100px */
         margin-bottom: 10px;
     }
 

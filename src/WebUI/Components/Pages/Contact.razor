@@ -1,14 +1,145 @@
 ﻿@page "/contact"
+@inject IConfiguration Configuration
+@using CentroEspecialidadesDentales.Domain.Entities
+@using System.ComponentModel.DataAnnotations
 
 <h1>Contacto</h1>
-<p>Dirección: Calle Dental 123, Ciudad Sonrisa</p>
-<p>Teléfono: (123) 456-7890</p>
-<form>
-    <label>Nombre:</label>
-    <input type="text" />
-    <label>Email:</label>
-    <input type="email" />
-    <label>Mensaje:</label>
-    <textarea></textarea>
-    <button type="submit" class="btn btn-secondary">Enviar</button>
-</form>
+<div class="contact-container">
+    <div class="contact-info">
+        <h2>Información de Contacto</h2>
+        <p><strong>Dirección:</strong> @contactInfo.Address</p>
+        <p><strong>Teléfono:</strong> @contactInfo.PhoneNumber</p>
+        <p><strong>Email:</strong> <a href="mailto:@contactInfo.Email">@contactInfo.Email</a></p>
+        <p><strong>Horario:</strong> @contactInfo.Hours</p>
+    </div>
+
+    <div class="contact-form">
+        <h2>Envíanos un Mensaje</h2>
+        <EditForm Model="@contactForm" OnValidSubmit="HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label>Nombre:</label>
+                <InputText id="name" class="form-control" @bind-Value="contactForm.Name" />
+                <ValidationMessage For="@(() => contactForm.Name)" />
+            </div>
+
+            <div class="form-group">
+                <label>Email:</label>
+                <InputText id="email" type="email" class="form-control" @bind-Value="contactForm.Email" />
+                <ValidationMessage For="@(() => contactForm.Email)" />
+            </div>
+
+            <div class="form-group">
+                <label>Mensaje:</label>
+                @* <InputTextarea id="message" class="form-control" @bind-Value="contactForm.Message" /> *@
+                <ValidationMessage For="@(() => contactForm.Message)" />
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Enviar</button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private ContactInfo contactInfo;
+    private ContactFormModel contactForm = new ContactFormModel();
+
+    protected override void OnInitialized()
+    {
+        contactInfo = Configuration.GetSection("ContactInfo").Get<ContactInfo>();
+    }
+
+    private void HandleValidSubmit()
+    {
+        // Handle form submission logic here, e.g., send an email or save to a database.
+        Console.WriteLine("Form submitted successfully!");
+    }
+
+    private class ContactFormModel
+    {
+        [Required(ErrorMessage = "El nombre es obligatorio.")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "El email es obligatorio.")]
+        [EmailAddress(ErrorMessage = "El email no es válido.")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "El mensaje es obligatorio.")]
+        public string Message { get; set; }
+    }
+
+    private class ContactInfo
+    {
+        public string Address { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
+        public string Hours { get; set; }
+    }
+}
+
+<style>
+    .contact-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    .contact-info {
+        margin-bottom: 40px;
+    }
+
+    .contact-info h2,
+    .contact-form h2 {
+        font-size: 2rem;
+        color: #343a40;
+        margin-bottom: 20px;
+    }
+
+    .contact-info p {
+        font-size: 1.2rem;
+        color: #555;
+    }
+
+    .contact-form {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .btn-secondary {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+        background-color: #0056b3;
+    }
+</style>

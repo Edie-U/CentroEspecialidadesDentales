@@ -9,21 +9,21 @@ html, body {
 }
 
 a, .btn-link {
-    color: #007bff; /* Aqua color for links */
+    color: #007ACC; /* Calming blue for links */
 }
 
     a:hover, .btn-link:hover {
-        color: #0056b3; /* Darker aqua for link hover */
+        color: #0056b3; /* Darker blue for link hover */
     }
 
 .btn-primary {
     color: #fff;
-    background-color: #007bff; /* Aqua background for buttons */
-    border-color: #007bff;
+    background-color: #007ACC; /* Calming blue background for buttons */
+    border-color: #007ACC;
 }
 
     .btn-primary:hover {
-        background-color: #0056b3; /* Darker aqua for button hover */
+        background-color: #0056b3; /* Darker blue for button hover */
         border-color: #0056b3;
     }
 
@@ -39,8 +39,8 @@ a, .btn-link {
     }
 
 .form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    border-color: #007ACC;
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 204, 0.25);
 }
 
 .content {
@@ -48,7 +48,7 @@ a, .btn-link {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #007bff; /* Aqua color for headings */
+    color: #007ACC; /* Calming blue for headings */
 }
 
     h1:focus {
@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
 
     .hero-section h1 {
         font-size: 3em;
-        color: #007bff; /* Aqua color for headings */
+        color: #007ACC; /* Calming blue for headings */
     }
 
     .hero-section p {
@@ -119,7 +119,7 @@ h1, h2, h3, h4, h5, h6 {
 .testimonial-item {
     margin: 20px 0;
     padding: 10px;
-    border-left: 3px solid #007bff; /* Aqua color */
+    border-left: 3px solid #007ACC; /* Calming blue */
 }
 
 .contact-section form {
@@ -141,18 +141,18 @@ h1, h2, h3, h4, h5, h6 {
 .btn {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007bff; /* Aqua background */
+    background-color: #007ACC; /* Calming blue background */
     color: white;
     border: none;
     cursor: pointer;
 }
 
 .btn-primary {
-    background-color: #007bff; /* Aqua background */
+    background-color: #007ACC; /* Calming blue background */
 }
 
     .btn-primary:hover {
-        background-color: #0056b3; /* Darker aqua for button hover */
+        background-color: #0056b3; /* Darker blue for button hover */
     }
 
 .btn-secondary {
