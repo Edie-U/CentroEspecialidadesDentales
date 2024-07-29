@@ -1,4 +1,109 @@
 ﻿@page "/about"
+@inject IConfiguration Configuration
+@using CentroEspecialidadesDentales.Domain.Entities
 
 <h1>Sobre Nosotros</h1>
-<p>Información sobre la clínica, nuestros dentistas y el equipo.</p>
+<div class="about-container">
+    <!-- Clinic Information Section -->
+    <div class="clinic-info">
+        <h2>Nuestra Clínica</h2>
+        <p>En el Centro de Especialidades Dentales, nos dedicamos a proporcionar la mejor atención dental a nuestros pacientes. Nuestra clínica está equipada con tecnología de vanguardia para asegurar que cada tratamiento sea lo más eficiente y cómodo posible. Desde limpiezas regulares hasta procedimientos avanzados, estamos aquí para cuidar de tu sonrisa.</p>
+    </div>
+
+    <!-- Dentists Section -->
+    <div class="dentists-section">
+        <h2>Nuestros Dentistas</h2>
+        <div class="team-list">
+            @foreach (var dentist in Dentists)
+            {
+                <div class="team-item">
+                    @* <img src="@dentist.ImageUrl" alt="@dentist.Name" class="dentist-photo" /> *@
+                    <h3>@dentist.Name</h3>
+                    <p>@dentist.Specialty</p>
+                    <p>Cédula: @dentist.Cedula</p>
+                    @* <p>@dentist.Bio</p> *@
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="team-section">
+        <h2>Nuestro Equipo</h2>
+        <p>Además de nuestros talentosos dentistas, contamos con un equipo de profesionales dedicados que trabajan arduamente para garantizar que tu experiencia en nuestra clínica sea positiva. Nuestro equipo de recepción, asistentes dentales y personal administrativo están aquí para ayudarte en cada paso del camino.</p>
+    </div>
+</div>
+
+@code {
+    private List<Dentist> Dentists { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Dentists = Configuration.GetSection("Dentists").Get<List<Dentist>>();
+    }
+}
+
+<style>
+    .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    .clinic-info,
+    .dentists-section,
+    .team-section {
+        margin-bottom: 40px;
+    }
+
+        .clinic-info h2,
+        .dentists-section h2,
+        .team-section h2 {
+            font-size: 2rem;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        .clinic-info p,
+        .team-section p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+    .team-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .team-item {
+        background-color: #f8f9fa;
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin: 10px;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 250px;
+    }
+
+    .dentist-photo {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .team-item h3 {
+        font-size: 1.5rem;
+        color: #343a40;
+        margin-bottom: 5px;
+    }
+
+    .team-item p {
+        font-size: 1rem;
+        color: #6c757d;
+        margin-bottom: 5px;
+    }
+</style>
