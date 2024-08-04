@@ -8,7 +8,7 @@
 
 .top-nav {
     display: flex;
-    background-color: #F2F2F2; /* Soft White */
+    background-color: #D3D3D3; /* Light Gray */
     border-bottom: 1px solid #d6d5d5;
     padding: 0.5rem 1rem;
     align-items: center;
@@ -28,13 +28,16 @@ main {
 
 article.content {
     flex: 1;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .bottom-banner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #F2F2F2; /* Soft White */
+    background-color: #D3D3D3; /* Light Gray */
     border-top: 1px solid #d6d5d5;
     padding: 0.5rem 1rem;
     position: fixed;
@@ -43,8 +46,45 @@ article.content {
     z-index: 1000;
 }
 
-.links .btn {
-    margin-left: auto; /* Aligns the button to the right */
+.contact-info {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+    .contact-info p {
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .contact-info a {
+        color: #000080; /* Navy Blue */
+        text-decoration: none;
+    }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+.links {
+    display: flex;
+    align-items: center;
+}
+
+    .links a {
+        margin-left: 20px;
+        color: #000080; /* Navy Blue */
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+.sidebar {
+    width: 250px;
+    background-color: #f3f3f3;
 }
 
 /* Responsive adjustments */
@@ -57,3 +97,159 @@ article.content {
         margin-bottom: 0.5rem;
     }
 }
+
+/* Custom navigation link styles */
+.nav-link {
+    color: #000080; /* Navy Blue for links */
+}
+
+    .nav-link:hover, .nav-link.active {
+        color: #32CD32; /* Green for link hover and active state */
+    }
+
+/* Button styles */
+.links .btn {
+    background-color: #007ACC; /* Blue background */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+    .links .btn:hover {
+        background-color: #0056b3; /* Darker blue for button hover */
+    }
+
+.btn-primary {
+    background-color: #007ACC; /* Blue background */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue for button hover */
+    }
+
+.btn-secondary {
+    background-color: #007ACC; /* Blue background */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+    .btn-secondary:hover {
+        background-color: #0056b3; /* Darker blue for button hover */
+    }
+
+/* Custom top-nav branding */
+.top-nav .navbar-brand {
+    color: #000080; /* Navy Blue for brand text */
+}
+
+/* Navigation toggle (burger icon) */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+    .nav-toggle-label .nav-toggle-icon {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background-color: #000080; /* Navy Blue */
+        position: relative;
+    }
+
+        .nav-toggle-label .nav-toggle-icon::before,
+        .nav-toggle-label .nav-toggle-icon::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 4px;
+            background-color: #000080; /* Navy Blue */
+            position: absolute;
+            left: 0;
+        }
+
+        .nav-toggle-label .nav-toggle-icon::before {
+            top: -10px;
+        }
+
+        .nav-toggle-label .nav-toggle-icon::after {
+            bottom: -10px;
+        }
+
+/* Show burger icon on small screens */
+@media (max-width: 640.98px) {
+    .nav-toggle-label {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+    }
+
+    .nav-toggle:checked + .nav-toggle-label + .nav-scrollable .nav-menu {
+        display: flex;
+    }
+}
+
+/* Ensure the navbar colors are applied correctly */
+.navbar-brand {
+    color: #007ACC !important; /* Calming blue */
+}
+
+    .navbar-brand:hover {
+        color: #0056b3 !important; /* Darker blue */
+    }
+
+.nav-link {
+    color: #007ACC !important; /* Calming blue */
+}
+
+    .nav-link:hover {
+        color: #0056b3 !important; /* Darker blue */
+    }
+
+.navbar-toggler-icon {
+    background-color: #007ACC !important; /* Calming blue */
+}
+
+    .navbar-toggler-icon::before {
+        background-color: #007ACC !important; /* Calming blue */
+    }
+
+.navbar-light .navbar-nav .nav-link {
+    color: #007ACC !important; /* Calming blue */
+}
+
+    .navbar-light .navbar-nav .nav-link:hover {
+        color: #0056b3 !important; /* Darker blue */
+    }
+
+.navbar-light .navbar-nav .nav-item.active .nav-link,
+.navbar-light .navbar-nav .nav-item.show .nav-link {
+    color: #0056b3 !important; /* Darker blue */
+}
+
+.nav-scrollable {
+    background-color: #F2F2F2 !important; /* Soft White */
+}
+
+    .nav-scrollable .navbar-nav .nav-item .nav-link {
+        color: #007ACC !important; /* Calming blue */
+    }
+
+        .nav-scrollable .navbar-nav .nav-item .nav-link:hover {
+            color: #0056b3 !important; /* Darker blue */
+        }

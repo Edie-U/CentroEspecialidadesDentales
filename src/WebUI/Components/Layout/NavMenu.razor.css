@@ -1,51 +1,85 @@
-/* Custom CSS */
-#navbar-toggler {
-    display: none;
+/* Page layout */
+.page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding-top: 3.5rem; /* Adjust based on height of top-nav */
 }
 
-.navbar-toggler-icon {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-color: #007ACC; /* Calming blue color */
+.top-nav {
+    display: flex;
+    background-color: #D3D3D3; /* Light Gray */
+    border-bottom: 1px solid #d6d5d5;
+    padding: 0.5rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+article.content {
+    flex: 1;
+}
+
+.bottom-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #D3D3D3; /* Light Gray */
+    border-top: 1px solid #d6d5d5;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.links .btn {
+    margin-left: auto; /* Aligns the button to the right */
+}
+
+/* Responsive adjustments */
+@media (max-width: 640.98px) {
+    .top-nav, .bottom-banner {
+        flex-direction: column;
+    }
+
+    .nav-link {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Custom navigation link styles */
+.nav-link {
+    color: #000080; /* Navy Blue for links */
+}
+
+    .nav-link:hover, .nav-link.active {
+        color: #32CD32; /* Green for link hover and active state */
+    }
+
+/* Button styles */
+.links .btn {
+    background-color: #32CD32; /* Green background */
+    color: white;
+    border: none;
     cursor: pointer;
 }
 
-/* Adjust the size and position of the checkbox to fit the icon */
-.navbar-toggler {
-    display: none; /* Hide the default checkbox */
-}
-
-.navbar-toggler-icon::before {
-    content: '';
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background-color: #007ACC; /* Calming blue color */
-    cursor: pointer;
-}
-
-/* Ensure the nav-scrollable is displayed correctly */
-.nav-scrollable {
-    display: block;
-}
-
-/* Hide menu for mobile devices */
-@media (max-width: 767px) {
-    .nav-scrollable {
-        display: none;
+    .links .btn:hover {
+        background-color: #87CEEB; /* Soft Blue for button hover */
     }
 
-    #navbar-toggler {
-        display: inline-block;
-    }
-
-        #navbar-toggler:checked ~ .nav-scrollable {
-            display: block;
-        }
-
-    /* Adjust the icon to show only on mobile */
-    .navbar-toggler-icon {
-        display: inline-block;
-    }
+/* Custom top-nav branding */
+.top-nav .navbar-brand {
+    color: #000080; /* Navy Blue for brand text */
 }

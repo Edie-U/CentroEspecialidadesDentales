@@ -3,7 +3,7 @@
 @using CentroEspecialidadesDentales.Domain.Entities
 @using System.ComponentModel.DataAnnotations
 
-<h1>Contacto</h1>
+<h1 class="contact-title">Contacto</h1>
 <div class="contact-container">
     <div class="contact-info">
         <h2>Información de Contacto</h2>
@@ -20,24 +20,24 @@
             <ValidationSummary />
 
             <div class="form-group">
-                <label>Nombre:</label>
+                <label for="name">Nombre:</label>
                 <InputText id="name" class="form-control" @bind-Value="contactForm.Name" />
                 <ValidationMessage For="@(() => contactForm.Name)" />
             </div>
 
             <div class="form-group">
-                <label>Email:</label>
+                <label for="email">Email:</label>
                 <InputText id="email" type="email" class="form-control" @bind-Value="contactForm.Email" />
                 <ValidationMessage For="@(() => contactForm.Email)" />
             </div>
 
             <div class="form-group">
-                <label>Mensaje:</label>
-                @* <InputTextarea id="message" class="form-control" @bind-Value="contactForm.Message" /> *@
+                <label for="message">Mensaje:</label>
+                <InputTextArea id="message" class="form-control" @bind-Value="contactForm.Message" />
                 <ValidationMessage For="@(() => contactForm.Message)" />
             </div>
 
-            <button type="submit" class="btn btn-secondary">Enviar</button>
+            <button type="submit" class="btn btn-primary">Enviar</button>
         </EditForm>
     </div>
 </div>
@@ -78,68 +78,3 @@
         public string Hours { get; set; }
     }
 }
-
-<style>
-    .contact-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-    }
-
-    .contact-info {
-        margin-bottom: 40px;
-    }
-
-    .contact-info h2,
-    .contact-form h2 {
-        font-size: 2rem;
-        color: #343a40;
-        margin-bottom: 20px;
-    }
-
-    .contact-info p {
-        font-size: 1.2rem;
-        color: #555;
-    }
-
-    .contact-form {
-        background-color: #f8f9fa;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
-
-    .form-group input,
-    .form-group textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    .btn-secondary {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .btn-secondary:hover {
-        background-color: #0056b3;
-    }
-</style>

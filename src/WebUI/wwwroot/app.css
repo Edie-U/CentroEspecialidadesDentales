@@ -4,43 +4,42 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #f0fdfd; /* Light blue background */
+    background-color: #FFFFFF; /* White background */
     color: #004d4d; /* Darker aqua for text */
 }
 
 a, .btn-link {
-    color: #007ACC; /* Calming blue for links */
+    color: #000080; /* Navy Blue for links */
 }
 
     a:hover, .btn-link:hover {
-        color: #0056b3; /* Darker blue for link hover */
+        color: #32CD32; /* Green for link hover */
     }
 
 .btn-primary {
     color: #fff;
-    background-color: #007ACC; /* Calming blue background for buttons */
-    border-color: #007ACC;
+    background-color: #32CD32; /* Green background for buttons */
+    border-color: #32CD32;
 }
 
     .btn-primary:hover {
-        background-color: #0056b3; /* Darker blue for button hover */
-        border-color: #0056b3;
+        background-color: #87CEEB; /* Soft Blue for button hover */
+        border-color: #87CEEB;
     }
 
 .btn-secondary {
     color: #fff;
-    background-color: #6c757d; /* Secondary button color */
-    border-color: #6c757d;
+    background-color: #32CD32; /* Green */
+    border-color: #32CD32;
 }
 
     .btn-secondary:hover {
-        background-color: #5a6268; /* Darker secondary button color */
-        border-color: #545b62;
+        background-color: #87CEEB; /* Soft Blue */
     }
 
 .form-control:focus {
-    border-color: #007ACC;
-    box-shadow: 0 0 0 0.2rem rgba(0, 122, 204, 0.25);
+    border-color: #32CD32;
+    box-shadow: 0 0 0 0.2rem rgba(50, 205, 50, 0.25);
 }
 
 .content {
@@ -48,7 +47,7 @@ a, .btn-link {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #007ACC; /* Calming blue for headings */
+    color: #87CEEB; /* Soft Blue for headings */
 }
 
     h1:focus {
@@ -93,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 
     .hero-section h1 {
         font-size: 3em;
-        color: #007ACC; /* Calming blue for headings */
+        color: #87CEEB; /* Soft Blue for headings */
     }
 
     .hero-section p {
@@ -119,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
 .testimonial-item {
     margin: 20px 0;
     padding: 10px;
-    border-left: 3px solid #007ACC; /* Calming blue */
+    border-left: 3px solid #87CEEB; /* Soft Blue */
 }
 
 .contact-section form {
@@ -141,18 +140,18 @@ h1, h2, h3, h4, h5, h6 {
 .btn {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007ACC; /* Calming blue background */
+    background-color: #32CD32; /* Green background */
     color: white;
     border: none;
     cursor: pointer;
 }
 
 .btn-primary {
-    background-color: #007ACC; /* Calming blue background */
+    background-color: #32CD32; /* Green background */
 }
 
     .btn-primary:hover {
-        background-color: #0056b3; /* Darker blue for button hover */
+        background-color: #87CEEB; /* Soft Blue for button hover */
     }
 
 .btn-secondary {
