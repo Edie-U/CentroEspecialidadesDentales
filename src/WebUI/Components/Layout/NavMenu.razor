@@ -1,4 +1,5 @@
 ﻿@page "/navmenu"
+@inject NavigationManager Navigation
 
 <div class="top-row ps-3 navbar navbar-light">
     <div class="container-fluid">
@@ -19,10 +20,22 @@
                             <span class="bi bi-house-door-fill" aria-hidden="true"></span> Inicio
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/treatments">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tratamientosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="bi bi-bandaid" aria-hidden="true"></span> Tratamientos
                         </a>
+                        <div class="dropdown-menu" aria-labelledby="tratamientosDropdown">
+                            <a class="dropdown-item" href="/treatments">Tratamientos</a>
+                            <a class="dropdown-item" href="/treatments#consulta-dental">Consulta Dental</a>
+                            <a class="dropdown-item" href="/treatments#odontologia-infantil">Odontología Infantil</a>
+                            <a class="dropdown-item" href="/treatments#estetica-dental">Estética Dental</a>
+                            <a class="dropdown-item" href="/treatments#extracciones-dentales">Extracciones Dentales</a>
+                            <a class="dropdown-item" href="/treatments#protesis-dental">Prótesis Dental</a>
+                            <a class="dropdown-item" href="/treatments#endodoncia">Endodoncia</a>
+                            <a class="dropdown-item" href="/treatments#ortodoncia">Ortodoncia</a>
+                            <a class="dropdown-item" href="/treatments#parodoncia">Parodoncia</a>
+                            <a class="dropdown-item" href="/treatments#obturaciones-con-resina">Obturaciones con Resina</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/blog">
@@ -55,13 +68,10 @@
     </nav>
 </div>
 
-<script>
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            document.getElementById('navbar-toggler').checked = false;
-        });
-    });
-</script>
+@code {
+}
+
+
 
 <style>
     /* Ensure the navbar colors are applied correctly */

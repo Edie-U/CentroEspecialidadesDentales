@@ -1,5 +1,6 @@
 ﻿@page "/treatments"
 @inject NavigationManager Navigation
+@inject IJSRuntime JS
 
 <h1>TRATAMIENTOS</h1>
 <p>En el Centro de Especialidades Dentales, ofrecemos una gama completa de tratamientos dentales: restaurativos, cosméticos, ortodoncia, endodoncia y quirúrgicos, para satisfacer todas sus necesidades de salud dental. Contamos con equipos y aparatos de última generación para brindarle la calidad que usted merece.</p>
@@ -46,7 +47,7 @@
                 <p>
                     Realizamos una limpieza dental completa para reducir la caries dental y las bacterias a las que su cepillo de dientes no puede llegar. La higiene dental es importante, y las limpiezas exhaustivas, estrategias antibacterianas y medidas preventivas pueden ayudarle a mantener dientes y encías saludables.
                 </p>
-                <button class="btn btn-primary" @onclick="BookAppointment">Reservar Cita</button>
+
             </div>
         </div>
     </div>
@@ -89,7 +90,7 @@
                 <p>
                     Es importante explicar a nuestros hijos la necesidad de limitar los alimentos chatarra y bebidas azucaradas. Visitar al dentista regularmente, cepillarse los dientes y usar hilo dental son hábitos que previenen las caries y refrescan el aliento. Si su adolescente necesita tratamiento de ortodoncia, ofrecemos aparatos tradicionales y servicios de alineación dental.
                 </p>
-                <button class="btn btn-primary" @onclick="BookAppointment">Reservar Cita</button>
+
             </div>
         </div>
     </div>
@@ -129,7 +130,7 @@
                 <p>
                     La mayoría de los tratamientos dentales actuales, además de mantener y conservar la función de los dientes, incluyen un factor estético. Por ello, la ortodoncia y la odontología conservadora también forman parte de la odontología estética.
                 </p>
-                <button class="btn btn-primary" @onclick="BookAppointment">Reservar Cita</button>
+
             </div>
         </div>
     </div>
@@ -169,7 +170,7 @@
                 <p>
                     En el Centro de Especialidades Dentales procuramos que este procedimiento sea suave y sin dolor para usted.
                 </p>
-                <button class="btn btn-primary" @onclick="BookAppointment">Reservar Cita</button>
+
             </div>
         </div>
     </div>
@@ -221,7 +222,7 @@
                 <p>
                     En general, se utilizan diferentes materiales para la elaboración de las piezas dentales, por lo que hay variaciones en los costos.
                 </p>
-                <button class="btn btn-primary" @onclick="BookAppointment">Reservar Cita</button>
+
             </div>
         </div>
     </div>
@@ -264,7 +265,7 @@
                 <p>
                     No todas las endodoncias son 100% exitosas; sin embargo, son una excelente opción para no perder una pieza dental y preservar su función el mayor tiempo posible.
                 </p>
-                <button class="btn btn-primary" @onclick="BookAppointment">Reservar Cita</button>
+
             </div>
         </div>
     </div>
@@ -321,7 +322,7 @@
                         <li>Brackets de zafiro</li>
                     </ul>
                 </p>
-                <button class="btn btn-primary" @onclick="BookAppointment">Reservar Cita</button>
+
             </div>
         </div>
     </div>
@@ -361,7 +362,7 @@
                 <p>
                     La Gingivitis, primera etapa de la enfermedad de las encías, se manifiesta con encías inflamadas y sangrantes. Si no se trata a tiempo, puede avanzar a Periodontitis, que incluye inflamación severa, enrojecimiento, sangrado, pérdida de hueso y migración de las encías debido a la presencia de sarro supra-infra gingival.
                 </p>
-                <button class="btn btn-primary" @onclick="BookAppointment">Reservar Cita</button>
+
             </div>
         </div>
     </div>
@@ -401,7 +402,7 @@
                 <p>
                     Las resinas son la opción más utilizada actualmente por su estética y gran resistencia a la masticación, muchas de ellas contienen cristales de porcelana y se asemejan al color de los dientes.
                 </p>
-                <button class="btn btn-primary" @onclick="BookAppointment">Reservar Cita</button>
+
             </div>
         </div>
     </div>
@@ -413,11 +414,24 @@
     {
         Navigation.NavigateTo("/book-appointment");
     }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var uri = new Uri(Navigation.Uri);
+            if (uri.Fragment.Length > 1)
+            {
+                var elementId = uri.Fragment.Substring(1); // Remove the '#' character
+                await JS.InvokeVoidAsync("scrollToElementAndExpand", elementId);
+            }
+        }
+    }
 }
 
 <style>
     h1 {
-        color: #007bff;
+        color: #ADD8E6; /* Light Blue */
         margin-bottom: 20px;
     }
 
